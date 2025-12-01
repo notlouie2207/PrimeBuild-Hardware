@@ -5,7 +5,7 @@ int main() {
     // Initialization of variables
     // Logic variables
     int selectCategory, discountIdentifier;
-    float itemTotal;
+    float itemTotal, grandTotal;
     bool validItem;
     string selectItem;
 
@@ -13,7 +13,7 @@ int main() {
     float itemQty;
 
     // Item cost variables
-    float chainsawPrice = 19999.99, drillPrice = 999.99, electricSawPrice = 4999.99, grinderPrice = 1199.99, pliersPrice = 219.99, 
+    float chainsawPrice = 9999.99, drillPrice = 999.99, electricSawPrice = 4999.99, grinderPrice = 1199.99, pliersPrice = 219.99, 
     spannerPrice = 249.99, handsawPrice = 299.99, hammerPrice = 499.99, looseWrenchPrice = 179.99, pvcCutterPrice = 349.99, 
     screwdriverSetPrice = 299.99, sledgehammerPrice = 699.99, towerPincersPrice = 144.99, barLevelPrice = 999.99, measuringTapePrice = 49.99, 
     nailsPrice = 149.99, ductTapePrice = 59.99, padlockPrice = 199.99, safetyGlassesPrice = 199.99, workGlovesPrice = 199.99;
@@ -25,7 +25,7 @@ int main() {
     measuringTapeCount = 0, nailsCount = 0, ductTapeCount = 0, padlockCount = 0, safetyGlassesCount = 0, workGlovesCount = 0;
 
     // Item total variables
-    float chainsawTotal = 0, drillTotal = 0, electricSawTotal = 0, grinderTotal = 0, pliersTotal = 0, 
+    double chainsawTotal = 0, drillTotal = 0, electricSawTotal = 0, grinderTotal = 0, pliersTotal = 0, 
     spannerTotal = 0, handsawTotal = 0, hammerTotal = 0, looseWrenchTotal = 0, pvcCutterTotal = 0, 
     screwdriverSetTotal = 0, sledgehammerTotal = 0, towerPincersTotal = 0, barLevelTotal = 0, 
     measuringTapeTotal = 0, nailsTotal = 0, ductTapeTotal = 0, padlockTotal = 0, safetyGlassesTotal = 0, workGlovesTotal = 0;
@@ -46,7 +46,7 @@ int main() {
     cout << divider << endl << line << endl;
     cout << "| No.  | Item Name                | Price                            |" << endl;
     cout << line << endl;
-    cout << "| 01   | Chainsaw                 | PHP 19,999.99                    |" << endl;
+    cout << "| 01   | Chainsaw                 | PHP 9,999.99                     |" << endl;
     cout << "| 02   | Drill                    | PHP 999.99                       |" << endl;
     cout << "| 03   | Electric Saw             | PHP 4,999.99                     |" << endl;
     cout << "| 04   | Grinder                  | PHP 1,199.99                     |" << endl;
@@ -234,6 +234,34 @@ int main() {
             cout << line << endl << dividerTwo << endl;
             cout << "|                    PRIMEBUILD HARDWARE RECEIPT                     |" << endl;
             cout << dividerTwo << endl << line << endl;
+            cout << "| Item         Quantity         Unit Price        Total Cost         |" << endl;
+            cout << line << endl;
+
+            // Callculate total costs of each item in the Power Tools category
+            chainsawTotal = chainsawCount * chainsawPrice;
+            drillTotal = drillCount * drillPrice;
+            electricSawTotal = electricSawCount * electricSawPrice;
+            grinderTotal = grinderCount * grinderPrice;
+
+            // Calculate total costs of each item in the Hand Tools category
+            pliersTotal = pliersCount * pliersPrice;
+            spannerTotal = spannerCount * spannerPrice;
+            handsawTotal = handsawCount * handsawPrice;
+            hammerTotal = hammerCount * hammerPrice;
+            looseWrenchTotal = looseWrenchCount * looseWrenchPrice;
+            pvcCutterTotal = pvcCutterCount * pvcCutterPrice;
+            screwdriverSetTotal = screwdriverSetCount * screwdriverSetPrice;
+            sledgehammerTotal = sledgehammerCount * sledgehammerPrice;
+            towerPincersTotal = towerPincersCount * towerPincersPrice;
+
+            // Calculate total costs of each item in the Miscellaneous Items category
+            nailsTotal = nailsCount * nailsPrice;
+            barLevelTotal = barLevelCount * barLevelPrice;
+            ductTapeTotal = ductTapeCount * ductTapePrice;
+            measuringTapeTotal = measuringTapeCount * measuringTapePrice;
+            padlockTotal = padlockCount * padlockPrice;
+            safetyGlassesTotal = safetyGlassesCount * safetyGlassesPrice;
+            workGlovesTotal = workGlovesCount * workGlovesPrice;
 
         } else {
             cout << "Invalid input! Please select a valid category.\n";
