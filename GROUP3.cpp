@@ -263,6 +263,9 @@ int main() {
             safetyGlassesTotal = safetyGlassesCount * safetyGlassesPrice;
             workGlovesTotal = workGlovesCount * workGlovesPrice;
 
+            // Receipt printout section
+            // To be added
+            
         } else {
             cout << "Invalid input! Please select a valid category.\n";
         }
