@@ -498,13 +498,13 @@ int main() {
                         cout << "  Adjustable Spanner      " << spannerCount << "             PHP " << spannerPrice << "      PHP " << spannerTotal << endl;
                     }
                     if (handsawCount > 0) {
-                        cout << "  Basic Hand Saw          " << handsawCount << "             PHP " << handsawPrice << "     PHP " << handsawTotal << endl;
+                        cout << "  Basic Hand Saw          " << handsawCount << "             PHP " << handsawPrice << "      PHP " << handsawTotal << endl;
                     }
                     if (hammerCount > 0) {
                         cout << "  Hammer                  " << hammerCount << "             PHP " << hammerPrice << "      PHP " << hammerTotal << endl;
                     } 
                     if (looseWrenchCount > 0) {
-                        cout << "  Loose Size Wrench       " << looseWrenchCount << "             PHP " << looseWrenchPrice << "     PHP " << looseWrenchTotal << endl;
+                        cout << "  Loose Size Wrench       " << looseWrenchCount << "             PHP " << looseWrenchPrice << "      PHP " << looseWrenchTotal << endl;
                     }
                     if (pvcCutterCount > 0) {
                         cout << "  PVC Pipe Cutter         " << pvcCutterCount << "             PHP " << pvcCutterPrice << "      PHP " << pvcCutterTotal << endl;
@@ -513,28 +513,28 @@ int main() {
                         cout << "  Screwdriver Set         " << screwdriverSetCount << "             PHP " << screwdriverSetPrice << "      PHP " << screwdriverSetTotal << endl;
                     }
                     if (sledgehammerCount > 0) {
-                        cout << "  Sledgehammer            " << sledgehammerCount << "             PHP " << sledgehammerPrice << "     PHP " << sledgehammerTotal << endl;
+                        cout << "  Sledgehammer            " << sledgehammerCount << "             PHP " << sledgehammerPrice << "      PHP " << sledgehammerTotal << endl;
                     }
                     if (towerPincersCount > 0) {
                         cout << "  Hammer                  " << towerPincersCount << "             PHP " << towerPincersPrice << "      PHP " << towerPincersTotal << endl;
                     }
                     if (nailsCount > 0) {
-                        cout << "  Assorted Nails          " << nailsCount << "             PHP " << nailsPrice << "     PHP " << nailsTotal << endl;
+                        cout << "  Assorted Nails          " << nailsCount << "             PHP " << nailsPrice << "      PHP " << nailsTotal << endl;
                     }
                     if (barLevelCount > 0) {
                         cout << "  Bar Level               " << barLevelCount << "             PHP " << barLevelPrice << "      PHP " << barLevelTotal << endl;
                     } 
                     if (ductTapeCount > 0) {
-                        cout << "  Duct Tape               " << ductTapeCount << "             PHP " << ductTapePrice << "     PHP " << ductTapeTotal << endl;
+                        cout << "  Duct Tape               " << ductTapeCount << "             PHP " << ductTapePrice << "       PHP " << ductTapeTotal << endl;
                     }
                     if (measuringTapeCount > 0) {
-                        cout << "  Measuring Tape          " << measuringTapeCount << "             PHP " << measuringTapePrice << "      PHP " << measuringTapeTotal << endl;
+                        cout << "  Measuring Tape          " << measuringTapeCount << "             PHP " << measuringTapePrice << "       PHP " << measuringTapeTotal << endl;
                     }
                     if (padlockCount > 0) {
                         cout << "  Padlock                 " << padlockCount << "             PHP " << padlockPrice << "      PHP " << padlockTotal << endl;
                     }
                     if (safetyGlassesCount > 0) {
-                        cout << "  Safety Glasses          " << safetyGlassesCount << "             PHP " << safetyGlassesPrice << "     PHP " << safetyGlassesTotal << endl;
+                        cout << "  Safety Glasses          " << safetyGlassesCount << "             PHP " << safetyGlassesPrice << "      PHP " << safetyGlassesTotal << endl;
                     }
                     if (workGlovesCount > 0) {
                         cout << "  Work Gloves             " << workGlovesCount << "             PHP " << workGlovesPrice << "      PHP " << workGlovesTotal << endl;
@@ -542,21 +542,21 @@ int main() {
 
                     // Print bottom of receipt
                     cout << line << endl;
-                    cout << " SUBTOTAL:                                              PHP " << subtotal << endl;
+                    cout << "  SUBTOTAL:                                             PHP " << subtotal << endl;
 
                     // Check discountIdentifier if valid for VAT exemption
                     if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
                         discount = subtotal * discountReduction;
                         grandTotal = subtotal - discount;
                         change = totalPaid - grandTotal;
-                        cout << " DISCOUNT:                                            - PHP " << (subtotal - discount) << endl;
-                        cout << " VAT:                                                   PHP 0" << endl;
+                        cout << "  DISCOUNT:                                           - PHP " << discount << endl;
+                        cout << "  VAT:                                                  PHP 0" << endl;
 
                         // Print total cost, given cash, and change
                         cout << line << endl;
-                        cout << " TOTAL COST:                                            PHP " << grandTotal << endl;
-                        cout << " CASH TENDERED:                                         PHP " << totalPaid << endl;
-                        cout << " CHANGE:                                                PHP " << change << endl;
+                        cout << "  TOTAL COST:                                           PHP " << grandTotal << endl;
+                        cout << "  CASH TENDERED:                                        PHP " << totalPaid << endl;
+                        cout << "  CHANGE:                                               PHP " << change << endl;
                         cout << line << endl;
                         cout << "|          THANK YOU FOR SHOPPING AT PRIMEBUILD HARDWARE!            |" << endl;
                         cout << line << endl;
@@ -565,14 +565,14 @@ int main() {
                     } else {
                         grandTotal = taxedSubtotal;
                         change = totalPaid - grandTotal;
-                        cout << " DISCOUNT:                                            - PHP 0" << endl;
-                        cout << " VAT:                                                   PHP " << (subtotal * valueAddedTax) << endl;
+                        cout << "  DISCOUNT:                                           - PHP 0" << endl;
+                        cout << "  VAT:                                                  PHP " << (subtotal * valueAddedTax) << endl;
 
                         // Print total cost, given cash, and change
                         cout << line << endl;
-                        cout << " TOTAL COST:                                            PHP " << grandTotal << endl;
-                        cout << " CASH TENDERED:                                         PHP " << totalPaid << endl;
-                        cout << " CHANGE:                                                PHP " << change << endl;
+                        cout << "  TOTAL COST:                                           PHP " << grandTotal << endl;
+                        cout << "  CASH TENDERED:                                        PHP " << totalPaid << endl;
+                        cout << "  CHANGE:                                               PHP " << change << endl;
                         cout << line << endl;
                         cout << "|          THANK YOU FOR SHOPPING AT PRIMEBUILD HARDWARE!            |" << endl;
                         cout << line << endl;
