@@ -37,6 +37,7 @@ int main() {
     string dividerTwo = "|                                                                    |";
 
     // Menu printout sequence
+    // Menu header printout
     cout << topBorder << endl;
     cout << "|                       PRIMEBUILD HARDWARE                          |" << endl;
     cout << topBorder << endl << divider << endl;
@@ -94,6 +95,8 @@ int main() {
                 // Case 1: Power Tools selected
                 case 1:
                     validItem = false;
+
+                    // While loop to check if a valid item is selected
                     while (validItem != true) {
                         cout << "POWER TOOLS Category selected. Please enter an item name from the menu (case-sensitive): ";
                         getline(cin, selectItem);
@@ -150,6 +153,8 @@ int main() {
                 // Case 2: Hand Tools selected
                 case 2:
                     validItem = false;
+
+                    // While loop to check if a valid item is selected
                     while (validItem != true) {
                         cout << "HAND TOOLS Category selected. Please enter an item name from the menu (case-sensitive): ";
                         getline(cin, selectItem);
@@ -261,6 +266,8 @@ int main() {
                 // Case 3: Miscellaneous Items selected
                 case 3:
                     validItem = false;
+
+                    // While loop to check if a valid item is selected
                     while (validItem != true) {
                         cout << "MISCELLANEOUS ITEMS Category selected. Please enter an item name from the menu (case-sensitive): ";
                         getline(cin, selectItem);
