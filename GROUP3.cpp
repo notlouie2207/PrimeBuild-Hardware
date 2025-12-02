@@ -5,10 +5,10 @@ int main() {
     // Initialization of variables
     // Logic variables
     int selectCategory;
-    float itemTotal, grandTotal;
-    bool validItem, validDiscountType, validCashAmount;
+    float itemTotal, initialSubtotal, subtotal, grandTotal;
+    bool validItem, validDiscountType;
     string selectItem, discountIdentifier;
-    double cashTendered, change, totalPaid = 0;
+    double cashTendered, discount, change, totalPaid = 0;
 
     // Temporary quantity variable
     float itemQty;
@@ -38,7 +38,7 @@ int main() {
     string dividerTwo = "|                                                                    |";
 
     // Constant values
-    float valueAddedTax = 0.12, discount = 0.20;
+    float valueAddedTax = 0.12, discountReduction = 0.20;
     bool isPwd, isSenior;
 
     // Menu printout sequence
@@ -389,14 +389,15 @@ int main() {
             workGlovesTotal = workGlovesCount * workGlovesPrice;
 
             // Calculate total of all items
-            grandTotal = chainsawTotal + drillTotal + electricSawTotal + grinderTotal +
+            subtotal = chainsawTotal + drillTotal + electricSawTotal + grinderTotal +
             pliersTotal + spannerTotal + handsawTotal + hammerTotal + looseWrenchTotal +
             pvcCutterTotal + screwdriverSetTotal + sledgehammerTotal + towerPincersTotal +
             nailsTotal + barLevelTotal + ductTapeTotal + measuringTapeTotal + padlockTotal +
             safetyGlassesTotal + workGlovesTotal;
 
             // Pre-emptively print the total of all items
-            cout << "Your subtotal is: " << grandTotal << endl;
+            initialSubtotal = (subtotal + (subtotal * valueAddedTax));
+            cout << "Your subtotal is: PHP " << initialSubtotal << endl;
 
             // Ask for discount type; if invalid, loop code block until discount type is valid
             validDiscountType = false;
@@ -412,7 +413,7 @@ int main() {
                     cout << "Senior Citizen discount applied. VAT Exemption applied.\n";
                     validDiscountType = true;
                 } else if (discountIdentifier == "PWD") {
-                    cout << "Senior Citizen discount applied. VAT Exemption applied.\n";
+                    cout << "PWD discount applied. VAT Exemption applied.\n";
                     validDiscountType = true;
                 } else if (discountIdentifier == "None") {
                     cout << "No discount applied. VAT exemption not applied.\n";
@@ -423,8 +424,7 @@ int main() {
             }
 
             // Ask for cash amount; loop the code block until cash amount is valid
-            validCashAmount = false;
-            while (validCashAmount != true) {
+            while (totalPaid < initialSubtotal) {
                 cout << "Please enter your cash amount: PHP ";
                 cin >> cashTendered;
                 if (cin.fail() || cashTendered < 0) {
@@ -437,15 +437,10 @@ int main() {
 
                 /* Check if cashTendered is greater than or equal to the total; if less than the total,
                 keep asking until cashTendered is equal to or greater than the total */
-                if (totalPaid < grandTotal) {
-                    cout << "Insufficient funds. You are missing PHP " << grandTotal - totalPaid << " more.\n";
+                if (totalPaid < initialSubtotal) {
+                    cout << "Insufficient funds. You are missing PHP " << subtotal - totalPaid << " more.\n";
                 }
-
-                change = totalPaid - grandTotal;
-                validCashAmount = true;
             }
-
-            
 
             // Receipt printout section
             // Receipt header printout
@@ -521,10 +516,44 @@ int main() {
                 cout << "  Work Gloves             " << workGlovesCount << "             PHP " << workGlovesPrice << "      PHP " << workGlovesTotal << endl;
             }
 
-            // Ask for cash amount; if invalid, loop the code block
+            // Print bottom of receipt
             cout << line << endl;
+            cout << " SUBTOTAL:                                              PHP " << subtotal << endl;
 
+            // Check discountIdentifier if valid for VAT exemption
+            if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
+                valueAddedTax = 0;
+                discount = subtotal * discountReduction;
+                grandTotal = (subtotal + (subtotal * valueAddedTax)) - discount;
+                change = totalPaid - grandTotal;
+                cout << " DISCOUNT:                                            - PHP " << (subtotal - discount) << endl;
+                cout << " VAT:                                                   PHP 0" << endl;
 
+                // Print total cost, given cash, and change
+                cout << line << endl;
+                cout << " TOTAL COST:                                            PHP " << grandTotal << endl;
+                cout << " CASH TENDERED:                                         PHP " << totalPaid << endl;
+                cout << " CHANGE:                                                PHP " << change << endl;
+                cout << line << endl;
+                cout << "|          THANK YOU FOR SHOPPING AT PRIMEBUILD HARDWARE!            |" << endl;
+                cout << line << endl;
+                return 0;
+
+            } else {
+                grandTotal = (subtotal + (subtotal * valueAddedTax)) - discount;
+                cout << " DISCOUNT:                                            - PHP 0" << endl;
+                cout << " VAT:                                                   PHP " << (subtotal * valueAddedTax) << endl;
+
+                // Print total cost, given cash, and change
+                cout << line << endl;
+                cout << " TOTAL COST:                                            PHP " << grandTotal << endl;
+                cout << " CASH TENDERED:                                         PHP " << totalPaid << endl;
+                cout << " CHANGE:                                                PHP " << change << endl;
+                cout << line << endl;
+                cout << "|          THANK YOU FOR SHOPPING AT PRIMEBUILD HARDWARE!            |" << endl;
+                cout << line << endl;
+                return 0;
+            }
         } else {
             cout << "Invalid input! Please select a valid category.\n";
         }
