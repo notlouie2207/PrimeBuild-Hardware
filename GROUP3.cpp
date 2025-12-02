@@ -391,7 +391,6 @@ int main() {
             workGlovesTotal = workGlovesCount * workGlovesPrice;
 
             // Receipt printout section
-            // To be added lol
 
         } else {
             cout << "Invalid input! Please select a valid category.\n";
