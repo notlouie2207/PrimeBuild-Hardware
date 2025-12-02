@@ -4,10 +4,9 @@ using namespace std;
 int main() {
     // Initialization of variables
     // Logic variables
-    int selectCategory;
     float itemTotal, taxedSubtotal, subtotal, grandTotal, change;
     bool validItem, validDiscountType;
-    string selectItem, discountIdentifier;
+    string selectItem, selectCategory, discountIdentifier;
     double cashTendered, discount, totalPaid = 0;
 
     // Temporary quantity variable
@@ -48,7 +47,7 @@ int main() {
     cout << topBorder << endl << divider << endl;
 
     // Category 1 printout
-    cout << "|                     CATEGORY #1 | POWER TOOLS                      |" << endl;
+    cout << "|                     CATEGORY #1 | Power Tools                      |" << endl;
     cout << divider << endl << line << endl;
     cout << "| No.  | Item Name                | Price                            |" << endl;
     cout << line << endl;
@@ -59,7 +58,7 @@ int main() {
     cout << line << endl << divider << endl;
 
     // Category 2 printout
-    cout << "|                     CATEGORY #2 | HAND TOOLS                       |" << endl;
+    cout << "|                     CATEGORY #2 | Hand Tools                       |" << endl;
     cout << divider << endl << line << endl;
     cout << "| No.  | Item Name                | Price                            |" << endl;
     cout << line << endl;
@@ -75,7 +74,7 @@ int main() {
     cout << line << endl << divider << endl;
 
     // Category 3 printout
-    cout << "|                     CATEGORY #3 | MISCELLANEOUS ITEMS              |" << endl;
+    cout << "|                     CATEGORY #3 | Miscellaneous Items              |" << endl;
     cout << divider << endl << line << endl;
     cout << "| No.  | Item Name                | Price                            |" << endl;
     cout << line << endl;
@@ -89,76 +88,68 @@ int main() {
     cout << line << endl;
 
     // Category selection
-    while (selectCategory != 4) {
-        cout << "Please enter a category number from 1-3 (4 to checkout): ";
+    while (selectCategory != "Checkout") {
+        cout << "Please enter a category name as displayed (Enter \"Checkout\" to checkout): ";
         cin >> selectCategory;
         cin.ignore();
 
         // Checks if selectCategory is within 1 to 3
-        if (selectCategory >= 1 && selectCategory <= 3) {
-            switch (selectCategory) {
-                // Case 1: Power Tools selected
-                case 1:
-                    validItem = false;
-
-                    // While loop to check if a valid item is selected
-                    while (validItem != true) {
-                        cout << "POWER TOOLS Category selected. Please enter an item name from the menu (case-sensitive): ";
-                        getline(cin, selectItem);
-                        if (selectItem == "Chainsaw") {
-                            cout << "Chainsaw selected. Please enter your desired quantity: ";
-                            cin >> itemQty;
-                            if (cin.fail()) {
-                                cin.clear();
-                                cin.ignore(10000, '\n');
-                                cout << "Invalid quantity! Please enter a number.\n";
-                                continue;
-                            }
-                            chainsawCount += itemQty;
-                            validItem = true;
-                        } else if (selectItem == "Drill") {
-                            cout << "Drill selected. Please enter your desired quantity: ";
-                            cin >> itemQty;
-                            if (cin.fail()) {
-                                cin.clear();
-                                cin.ignore(10000, '\n');
-                                cout << "Invalid quantity! Please enter a number.\n";
-                                continue;
-                            }
-                            drillCount += itemQty;
-                            validItem = true;
-                        } else if (selectItem == "Electric Saw") {
-                            cout << "Electric Saw selected. Please enter your desired quantity: ";
-                            cin >> itemQty;
-                            if (cin.fail()) {
-                                cin.clear();
-                                cin.ignore(10000, '\n');
-                                cout << "Invalid quantity! Please enter a number.\n";
-                                continue;
-                            }
-                            electricSawCount += itemQty;
-                            validItem = true;
-                        } else if (selectItem == "Grinder") {
-                            cout << "Grinder selected. Please enter your desired quantity: ";
-                            cin >> itemQty;
-                            if (cin.fail()) {
-                                cin.clear();
-                                cin.ignore(10000, '\n');
-                                cout << "Invalid quantity! Please enter a number.\n";
-                                continue;
-                            }
-                            grinderCount += itemQty;
-                            validItem = true;
-                        } else {
-                            cout << "Invalid item! Please input a valid item name.\n";
+        if (selectCategory == "Power Tools") {
+            validItem = false;
+                // While loop to check if a valid item is selected
+                while (validItem != true) {
+                    cout << "POWER TOOLS Category selected. Please enter an item name from the menu (case-sensitive): ";
+                    getline(cin, selectItem);
+                    if (selectItem == "Chainsaw") {
+                        cout << "Chainsaw selected. Please enter your desired quantity: ";
+                        cin >> itemQty;
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(10000, '\n');
+                            cout << "Invalid quantity! Please enter a number.\n";
+                            continue;
                         }
+                        chainsawCount += itemQty;
+                        validItem = true;
+                    } else if (selectItem == "Drill") {
+                        cout << "Drill selected. Please enter your desired quantity: ";
+                        cin >> itemQty;
+                         if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(10000, '\n');
+                            cout << "Invalid quantity! Please enter a number.\n";
+                            continue;
+                        }
+                        drillCount += itemQty;
+                        validItem = true;
+                    } else if (selectItem == "Electric Saw") {
+                        cout << "Electric Saw selected. Please enter your desired quantity: ";
+                        cin >> itemQty;
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(10000, '\n');
+                            cout << "Invalid quantity! Please enter a number.\n";
+                            continue;
+                        }
+                        electricSawCount += itemQty;
+                        validItem = true;
+                    } else if (selectItem == "Grinder") {
+                        cout << "Grinder selected. Please enter your desired quantity: ";
+                        cin >> itemQty;
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(10000, '\n');
+                            cout << "Invalid quantity! Please enter a number.\n";
+                            continue;
+                        }
+                        grinderCount += itemQty;
+                        validItem = true;
+                    } else {
+                        cout << "Invalid item! Please input a valid item name.\n";
                     }
-                break;
-
-                // Case 2: Hand Tools selected
-                case 2:
-                    validItem = false;
-
+                }
+            } else if (selectCategory == "Hand Tools") {
+                validItem = false;
                     // While loop to check if a valid item is selected
                     while (validItem != true) {
                         cout << "HAND TOOLS Category selected. Please enter an item name from the menu (case-sensitive): ";
@@ -266,12 +257,8 @@ int main() {
                             cout << "Invalid item! Please input a valid item name.\n";
                         }
                     }
-                break;
-
-                // Case 3: Miscellaneous Items selected
-                case 3:
+                } else if (selectCategory == "Miscellaneous Items") {
                     validItem = false;
-
                     // While loop to check if a valid item is selected
                     while (validItem != true) {
                         cout << "MISCELLANEOUS ITEMS Category selected. Please enter an item name from the menu (case-sensitive): ";
@@ -357,225 +344,223 @@ int main() {
                             cout << "Invalid item! Please input a valid item name.\n";
                         }
                     }  
-                break;  
-            }
-        } else if (selectCategory == 4) {
-            // Checkout sequence
+                } else if (selectCategory == "Checkout") {
+                    // Checkout sequence
 
-            // Callculate total costs of each item in the Power Tools category
-            chainsawTotal = chainsawCount * chainsawPrice;
-            drillTotal = drillCount * drillPrice;
-            electricSawTotal = electricSawCount * electricSawPrice;
-            grinderTotal = grinderCount * grinderPrice;
+                    // Callculate total costs of each item in the Power Tools category
+                    chainsawTotal = chainsawCount * chainsawPrice;
+                    drillTotal = drillCount * drillPrice;
+                    electricSawTotal = electricSawCount * electricSawPrice;
+                    grinderTotal = grinderCount * grinderPrice;
 
-            // Calculate total costs of each item in the Hand Tools category
-            pliersTotal = pliersCount * pliersPrice;
-            spannerTotal = spannerCount * spannerPrice;
-            handsawTotal = handsawCount * handsawPrice;
-            hammerTotal = hammerCount * hammerPrice;
-            looseWrenchTotal = looseWrenchCount * looseWrenchPrice;
-            pvcCutterTotal = pvcCutterCount * pvcCutterPrice;
-            screwdriverSetTotal = screwdriverSetCount * screwdriverSetPrice;
-            sledgehammerTotal = sledgehammerCount * sledgehammerPrice;
-            towerPincersTotal = towerPincersCount * towerPincersPrice;
+                    // Calculate total costs of each item in the Hand Tools category
+                    pliersTotal = pliersCount * pliersPrice;
+                    spannerTotal = spannerCount * spannerPrice;
+                    handsawTotal = handsawCount * handsawPrice;
+                    hammerTotal = hammerCount * hammerPrice;
+                    looseWrenchTotal = looseWrenchCount * looseWrenchPrice;
+                    pvcCutterTotal = pvcCutterCount * pvcCutterPrice;
+                    screwdriverSetTotal = screwdriverSetCount * screwdriverSetPrice;
+                    sledgehammerTotal = sledgehammerCount * sledgehammerPrice;
+                    towerPincersTotal = towerPincersCount * towerPincersPrice;
 
-            // Calculate total costs of each item in the Miscellaneous Items category
-            nailsTotal = nailsCount * nailsPrice;
-            barLevelTotal = barLevelCount * barLevelPrice;
-            ductTapeTotal = ductTapeCount * ductTapePrice;
-            measuringTapeTotal = measuringTapeCount * measuringTapePrice;
-            padlockTotal = padlockCount * padlockPrice;
-            safetyGlassesTotal = safetyGlassesCount * safetyGlassesPrice;
-            workGlovesTotal = workGlovesCount * workGlovesPrice;
+                    // Calculate total costs of each item in the Miscellaneous Items category
+                    nailsTotal = nailsCount * nailsPrice;
+                    barLevelTotal = barLevelCount * barLevelPrice;
+                    ductTapeTotal = ductTapeCount * ductTapePrice;
+                    measuringTapeTotal = measuringTapeCount * measuringTapePrice;
+                    padlockTotal = padlockCount * padlockPrice;
+                    safetyGlassesTotal = safetyGlassesCount * safetyGlassesPrice;
+                    workGlovesTotal = workGlovesCount * workGlovesPrice;
 
-            // Calculate total of all items
-            subtotal = chainsawTotal + drillTotal + electricSawTotal + grinderTotal +
-            pliersTotal + spannerTotal + handsawTotal + hammerTotal + looseWrenchTotal +
-            pvcCutterTotal + screwdriverSetTotal + sledgehammerTotal + towerPincersTotal +
-            nailsTotal + barLevelTotal + ductTapeTotal + measuringTapeTotal + padlockTotal +
-            safetyGlassesTotal + workGlovesTotal;
+                    // Calculate total of all items
+                    subtotal = chainsawTotal + drillTotal + electricSawTotal + grinderTotal +
+                    pliersTotal + spannerTotal + handsawTotal + hammerTotal + looseWrenchTotal +
+                    pvcCutterTotal + screwdriverSetTotal + sledgehammerTotal + towerPincersTotal +
+                    nailsTotal + barLevelTotal + ductTapeTotal + measuringTapeTotal + padlockTotal +
+                    safetyGlassesTotal + workGlovesTotal;
 
-            // Pre-emptively print the total of all items
-            taxedSubtotal = (subtotal + (subtotal * valueAddedTax));
-            cout << "Your subtotal is: PHP " << taxedSubtotal << endl;
+                    // Pre-emptively print the total of all items
+                    taxedSubtotal = (subtotal + (subtotal * valueAddedTax));
+                    cout << "Your subtotal is: PHP " << taxedSubtotal << endl;
 
-            // Ask for discount type; if invalid, loop code block until discount type is valid
-            validDiscountType = false;
-            while (validDiscountType != true) {
-                cout << "Please enter your discount type (Senior, PWD, or None): ";
-                getline(cin, discountIdentifier);
-                if (cin.fail()) {
-                    cin.clear();
-                    cin.ignore(10000, '\n');
-                    cout << "Please enter a valid discount type.\n";
-                }
-                if (discountIdentifier == "Senior") {
-                    cout << "Senior Citizen discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal << endl;
-                    validDiscountType = true;
-                } else if (discountIdentifier == "PWD") {
-                    cout << "PWD discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal << endl;
-                    validDiscountType = true;
-                } else if (discountIdentifier == "None") {
-                    cout << "No discount applied. VAT exemption not applied.\n";
-                    validDiscountType = true;
-                } else {
-                    cout << "Please enter a valid discount type.\n";
-                }
-            }
-
-            if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
-                while (totalPaid < subtotal) {
-                    cout << "Please enter your cash amount: PHP ";
-                    cin >> cashTendered;
-                    if (cin.fail() || cashTendered < 0) {
-                        cin.clear();
-                        cin.ignore(10000, '\n');
-                        cout << "Please enter a valid cash amount.\n" << endl;
+                    // Ask for discount type; if invalid, loop code block until discount type is valid
+                    validDiscountType = false;
+                    while (validDiscountType != true) {
+                        cout << "Please enter your discount type (Senior, PWD, or None): ";
+                        getline(cin, discountIdentifier);
+                        if (cin.fail()) {
+                            cin.clear();
+                            cin.ignore(10000, '\n');
+                            cout << "Please enter a valid discount type.\n";
+                        }
+                        if (discountIdentifier == "Senior") {
+                            cout << "Senior Citizen discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal << endl;
+                            validDiscountType = true;
+                        } else if (discountIdentifier == "PWD") {
+                            cout << "PWD discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal << endl;
+                            validDiscountType = true;
+                        } else if (discountIdentifier == "None") {
+                            cout << "No discount applied. VAT exemption not applied.\n";
+                            validDiscountType = true;
+                        } else {
+                            cout << "Please enter a valid discount type.\n";
+                        }
                     }
 
-                    totalPaid += cashTendered;
+                    if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
+                        while (totalPaid < subtotal) {
+                            cout << "Please enter your cash amount: PHP ";
+                            cin >> cashTendered;
+                            if (cin.fail() || cashTendered < 0) {
+                                cin.clear();
+                                cin.ignore(10000, '\n');
+                                cout << "Please enter a valid cash amount.\n" << endl;
+                            }
 
-                    /* Check if cashTendered is greater than or equal to the total; if less than the total,
-                    keep asking until cashTendered is equal to or greater than the total */
-                    if (totalPaid < subtotal) {
-                        cout << "Insufficient funds. You are missing PHP " << subtotal - totalPaid << " more.\n";
-                    }  
-                }
-            } else {
-                while (totalPaid < taxedSubtotal) {
-                    cout << "Please enter your cash amount: PHP ";
-                    cin >> cashTendered;
-                    if (cin.fail() || cashTendered < 0) {
-                        cin.clear();
-                        cin.ignore(10000, '\n');
-                        cout << "Please enter a valid cash amount.\n" << endl;
+                            totalPaid += cashTendered;
+
+                            /* Check if cashTendered is greater than or equal to the total; if less than the total,
+                            keep asking until cashTendered is equal to or greater than the total */
+                            if (totalPaid < subtotal) {
+                                cout << "Insufficient funds. You are missing PHP " << subtotal - totalPaid << " more.\n";
+                            }  
+                        }
+                    } else {
+                        while (totalPaid < taxedSubtotal) {
+                            cout << "Please enter your cash amount: PHP ";
+                            cin >> cashTendered;
+                            if (cin.fail() || cashTendered < 0) {
+                                cin.clear();
+                                cin.ignore(10000, '\n');
+                                cout << "Please enter a valid cash amount.\n" << endl;
+                            }
+
+                            totalPaid += cashTendered;
+
+                            /* Check if cashTendered is greater than or equal to the total; if less than the total,
+                            keep asking until cashTendered is equal to or greater than the total */
+                            if (totalPaid < taxedSubtotal) {
+                                cout << "Insufficient funds. You are missing PHP " << taxedSubtotal - totalPaid << " more.\n";
+                            }  
+                        }
+                    }
+                    // Ask for cash amount; loop the code block until cash amount is valid
+
+                    // Receipt printout section
+                    // Receipt header printout
+                    cout << "\nProceeding to checkout...\n\n";
+                    cout << line << endl << dividerTwo << endl;
+                    cout << "|                    PRIMEBUILD HARDWARE RECEIPT                     |" << endl;
+                    cout << dividerTwo << endl << line << endl << dividerTwo << endl;
+                    cout << "| Cashier: Monkey D. Luffy                        Serial No.: #06967 |" << endl;
+                    cout << dividerTwo << endl << line << endl;
+                    cout << "| Item                    Qty           Price           Cost         |" << endl;
+                    cout << line << endl;
+
+                    // Receipt proper printout
+                    // Check if itemCount variables have values; if yes, print them to be part of the receipt
+                    if (chainsawCount > 0) {
+                        cout << "  Chainsaw                " << chainsawCount << "             PHP " << chainsawPrice << "     PHP " << chainsawTotal << endl;
+                    }
+                    if (drillCount > 0) {
+                        cout << "  Drill                   " << drillCount << "             PHP " << drillPrice << "      PHP " << drillTotal << endl;
+                    }
+                    if (electricSawCount > 0) {
+                        cout << "  Electric Saw            " << electricSawCount << "             PHP " << electricSawPrice << "     PHP " << electricSawTotal << endl;
+                    }
+                    if (grinderCount > 0) {
+                        cout << "  Grinder                 " << grinderCount << "             PHP " << grinderPrice << "     PHP " << grinderTotal << endl;
+                    }
+                    if (pliersCount > 0) {
+                        cout << "  Pliers                  " << pliersCount << "             PHP " << pliersPrice << "      PHP " << pliersTotal << endl;
+                    }
+                    if (spannerCount > 0) {
+                        cout << "  Adjustable Spanner      " << spannerCount << "             PHP " << spannerPrice << "      PHP " << spannerTotal << endl;
+                    }
+                    if (handsawCount > 0) {
+                        cout << "  Basic Hand Saw          " << handsawCount << "             PHP " << handsawPrice << "     PHP " << handsawTotal << endl;
+                    }
+                    if (hammerCount > 0) {
+                        cout << "  Hammer                  " << hammerCount << "             PHP " << hammerPrice << "      PHP " << hammerTotal << endl;
+                    } 
+                    if (looseWrenchCount > 0) {
+                        cout << "  Loose Size Wrench       " << looseWrenchCount << "             PHP " << looseWrenchPrice << "     PHP " << looseWrenchTotal << endl;
+                    }
+                    if (pvcCutterCount > 0) {
+                        cout << "  PVC Pipe Cutter         " << pvcCutterCount << "             PHP " << pvcCutterPrice << "      PHP " << pvcCutterTotal << endl;
+                    }
+                    if (screwdriverSetCount > 0) {
+                        cout << "  Screwdriver Set         " << screwdriverSetCount << "             PHP " << screwdriverSetPrice << "      PHP " << screwdriverSetTotal << endl;
+                    }
+                    if (sledgehammerCount > 0) {
+                        cout << "  Sledgehammer            " << sledgehammerCount << "             PHP " << sledgehammerPrice << "     PHP " << sledgehammerTotal << endl;
+                    }
+                    if (towerPincersCount > 0) {
+                        cout << "  Hammer                  " << towerPincersCount << "             PHP " << towerPincersPrice << "      PHP " << towerPincersTotal << endl;
+                    }
+                    if (nailsCount > 0) {
+                        cout << "  Assorted Nails          " << nailsCount << "             PHP " << nailsPrice << "     PHP " << nailsTotal << endl;
+                    }
+                    if (barLevelCount > 0) {
+                        cout << "  Bar Level               " << barLevelCount << "             PHP " << barLevelPrice << "      PHP " << barLevelTotal << endl;
+                    } 
+                    if (ductTapeCount > 0) {
+                        cout << "  Duct Tape               " << ductTapeCount << "             PHP " << ductTapePrice << "     PHP " << ductTapeTotal << endl;
+                    }
+                    if (measuringTapeCount > 0) {
+                        cout << "  Measuring Tape          " << measuringTapeCount << "             PHP " << measuringTapePrice << "      PHP " << measuringTapeTotal << endl;
+                    }
+                    if (padlockCount > 0) {
+                        cout << "  Padlock                 " << padlockCount << "             PHP " << padlockPrice << "      PHP " << padlockTotal << endl;
+                    }
+                    if (safetyGlassesCount > 0) {
+                        cout << "  Safety Glasses          " << safetyGlassesCount << "             PHP " << safetyGlassesPrice << "     PHP " << safetyGlassesTotal << endl;
+                    }
+                    if (workGlovesCount > 0) {
+                        cout << "  Work Gloves             " << workGlovesCount << "             PHP " << workGlovesPrice << "      PHP " << workGlovesTotal << endl;
                     }
 
-                    totalPaid += cashTendered;
+                    // Print bottom of receipt
+                    cout << line << endl;
+                    cout << " SUBTOTAL:                                              PHP " << subtotal << endl;
 
-                    /* Check if cashTendered is greater than or equal to the total; if less than the total,
-                    keep asking until cashTendered is equal to or greater than the total */
-                    if (totalPaid < taxedSubtotal) {
-                        cout << "Insufficient funds. You are missing PHP " << taxedSubtotal - totalPaid << " more.\n";
-                    }  
-                }
-            }
-            // Ask for cash amount; loop the code block until cash amount is valid
+                    // Check discountIdentifier if valid for VAT exemption
+                    if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
+                        discount = subtotal * discountReduction;
+                        grandTotal = subtotal - discount;
+                        change = totalPaid - grandTotal;
+                        cout << " DISCOUNT:                                            - PHP " << (subtotal - discount) << endl;
+                        cout << " VAT:                                                   PHP 0" << endl;
 
-            // Receipt printout section
-            // Receipt header printout
-            cout << "\nProceeding to checkout...\n\n";
-            cout << line << endl << dividerTwo << endl;
-            cout << "|                    PRIMEBUILD HARDWARE RECEIPT                     |" << endl;
-            cout << dividerTwo << endl << line << endl << dividerTwo << endl;
-            cout << "| Cashier: Monkey D. Luffy                        Serial No.: #06967 |" << endl;
-            cout << dividerTwo << endl << line << endl;
-            cout << "| Item                    Qty           Price           Cost         |" << endl;
-            cout << line << endl;
+                        // Print total cost, given cash, and change
+                        cout << line << endl;
+                        cout << " TOTAL COST:                                            PHP " << grandTotal << endl;
+                        cout << " CASH TENDERED:                                         PHP " << totalPaid << endl;
+                        cout << " CHANGE:                                                PHP " << change << endl;
+                        cout << line << endl;
+                        cout << "|          THANK YOU FOR SHOPPING AT PRIMEBUILD HARDWARE!            |" << endl;
+                        cout << line << endl;
+                        return 0;
 
-            // Receipt proper printout
-            // Check if itemCount variables have values; if yes, print them to be part of the receipt
-            if (chainsawCount > 0) {
-                cout << "  Chainsaw                " << chainsawCount << "             PHP " << chainsawPrice << "     PHP " << chainsawTotal << endl;
-            }
-            if (drillCount > 0) {
-                cout << "  Drill                   " << drillCount << "             PHP " << drillPrice << "      PHP " << drillTotal << endl;
-            }
-            if (electricSawCount > 0) {
-                cout << "  Electric Saw            " << electricSawCount << "             PHP " << electricSawPrice << "     PHP " << electricSawTotal << endl;
-            }
-            if (grinderCount > 0) {
-                cout << "  Grinder                 " << grinderCount << "             PHP " << grinderPrice << "     PHP " << grinderTotal << endl;
-            }
-            if (pliersCount > 0) {
-                cout << "  Pliers                  " << pliersCount << "             PHP " << pliersPrice << "      PHP " << pliersTotal << endl;
-            }
-            if (spannerCount > 0) {
-                cout << "  Adjustable Spanner      " << spannerCount << "             PHP " << spannerPrice << "      PHP " << spannerTotal << endl;
-            }
-            if (handsawCount > 0) {
-                cout << "  Basic Hand Saw          " << handsawCount << "             PHP " << handsawPrice << "     PHP " << handsawTotal << endl;
-            }
-            if (hammerCount > 0) {
-                cout << "  Hammer                  " << hammerCount << "             PHP " << hammerPrice << "      PHP " << hammerTotal << endl;
-            } 
-            if (looseWrenchCount > 0) {
-                cout << "  Loose Size Wrench       " << looseWrenchCount << "             PHP " << looseWrenchPrice << "     PHP " << looseWrenchTotal << endl;
-            }
-            if (pvcCutterCount > 0) {
-                cout << "  PVC Pipe Cutter         " << pvcCutterCount << "             PHP " << pvcCutterPrice << "      PHP " << pvcCutterTotal << endl;
-            }
-            if (screwdriverSetCount > 0) {
-                cout << "  Screwdriver Set         " << screwdriverSetCount << "             PHP " << screwdriverSetPrice << "      PHP " << screwdriverSetTotal << endl;
-            }
-            if (sledgehammerCount > 0) {
-                cout << "  Sledgehammer            " << sledgehammerCount << "             PHP " << sledgehammerPrice << "     PHP " << sledgehammerTotal << endl;
-            }
-            if (towerPincersCount > 0) {
-                cout << "  Hammer                  " << towerPincersCount << "             PHP " << towerPincersPrice << "      PHP " << towerPincersTotal << endl;
-            }
-            if (nailsCount > 0) {
-                cout << "  Assorted Nails          " << nailsCount << "             PHP " << nailsPrice << "     PHP " << nailsTotal << endl;
-            }
-            if (barLevelCount > 0) {
-                cout << "  Bar Level               " << barLevelCount << "             PHP " << barLevelPrice << "      PHP " << barLevelTotal << endl;
-            } 
-            if (ductTapeCount > 0) {
-                cout << "  Duct Tape               " << ductTapeCount << "             PHP " << ductTapePrice << "     PHP " << ductTapeTotal << endl;
-            }
-            if (measuringTapeCount > 0) {
-                cout << "  Measuring Tape          " << measuringTapeCount << "             PHP " << measuringTapePrice << "      PHP " << measuringTapeTotal << endl;
-            }
-            if (padlockCount > 0) {
-                cout << "  Padlock                 " << padlockCount << "             PHP " << padlockPrice << "      PHP " << padlockTotal << endl;
-            }
-            if (safetyGlassesCount > 0) {
-                cout << "  Safety Glasses          " << safetyGlassesCount << "             PHP " << safetyGlassesPrice << "     PHP " << safetyGlassesTotal << endl;
-            }
-            if (workGlovesCount > 0) {
-                cout << "  Work Gloves             " << workGlovesCount << "             PHP " << workGlovesPrice << "      PHP " << workGlovesTotal << endl;
-            }
+                    } else {
+                        grandTotal = taxedSubtotal;
+                        change = totalPaid - grandTotal;
+                        cout << " DISCOUNT:                                            - PHP 0" << endl;
+                        cout << " VAT:                                                   PHP " << (subtotal * valueAddedTax) << endl;
 
-            // Print bottom of receipt
-            cout << line << endl;
-            cout << " SUBTOTAL:                                              PHP " << subtotal << endl;
-
-            // Check discountIdentifier if valid for VAT exemption
-            if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
-                discount = subtotal * discountReduction;
-                grandTotal = subtotal - discount;
-                change = totalPaid - grandTotal;
-                cout << " DISCOUNT:                                            - PHP " << (subtotal - discount) << endl;
-                cout << " VAT:                                                   PHP 0" << endl;
-
-                // Print total cost, given cash, and change
-                cout << line << endl;
-                cout << " TOTAL COST:                                            PHP " << grandTotal << endl;
-                cout << " CASH TENDERED:                                         PHP " << totalPaid << endl;
-                cout << " CHANGE:                                                PHP " << change << endl;
-                cout << line << endl;
-                cout << "|          THANK YOU FOR SHOPPING AT PRIMEBUILD HARDWARE!            |" << endl;
-                cout << line << endl;
-                return 0;
-
+                        // Print total cost, given cash, and change
+                        cout << line << endl;
+                        cout << " TOTAL COST:                                            PHP " << grandTotal << endl;
+                        cout << " CASH TENDERED:                                         PHP " << totalPaid << endl;
+                        cout << " CHANGE:                                                PHP " << change << endl;
+                        cout << line << endl;
+                        cout << "|          THANK YOU FOR SHOPPING AT PRIMEBUILD HARDWARE!            |" << endl;
+                        cout << line << endl;
+                        return 0;
+                    }
             } else {
-                grandTotal = taxedSubtotal;
-                change = totalPaid - grandTotal;
-                cout << " DISCOUNT:                                            - PHP 0" << endl;
-                cout << " VAT:                                                   PHP " << (subtotal * valueAddedTax) << endl;
-
-                // Print total cost, given cash, and change
-                cout << line << endl;
-                cout << " TOTAL COST:                                            PHP " << grandTotal << endl;
-                cout << " CASH TENDERED:                                         PHP " << totalPaid << endl;
-                cout << " CHANGE:                                                PHP " << change << endl;
-                cout << line << endl;
-                cout << "|          THANK YOU FOR SHOPPING AT PRIMEBUILD HARDWARE!            |" << endl;
-                cout << line << endl;
-                return 0;
-            }
-        } else {
-            cout << "Invalid input! Please select a valid category.\n";
+                cout << "Invalid input! Please select a valid category.\n";
         }
     }
 }
