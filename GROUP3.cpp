@@ -4,10 +4,11 @@ using namespace std;
 int main() {
     // Initialization of variables
     // Logic variables
-    int selectCategory, discountIdentifier;
+    int selectCategory;
     float itemTotal, grandTotal;
-    bool validItem;
-    string selectItem;
+    bool validItem, validDiscountType, validCashAmount;
+    string selectItem, discountIdentifier;
+    double cashTendered, change, totalPaid = 0;
 
     // Temporary quantity variable
     float itemQty;
@@ -387,6 +388,65 @@ int main() {
             safetyGlassesTotal = safetyGlassesCount * safetyGlassesPrice;
             workGlovesTotal = workGlovesCount * workGlovesPrice;
 
+            // Calculate total of all items
+            grandTotal = chainsawTotal + drillTotal + electricSawTotal + grinderTotal +
+            pliersTotal + spannerTotal + handsawTotal + hammerTotal + looseWrenchTotal +
+            pvcCutterTotal + screwdriverSetTotal + sledgehammerTotal + towerPincersTotal +
+            nailsTotal + barLevelTotal + ductTapeTotal + measuringTapeTotal + padlockTotal +
+            safetyGlassesTotal + workGlovesTotal;
+
+            // Pre-emptively print the total of all items
+            cout << "Your subtotal is: " << grandTotal << endl;
+
+            // Ask for discount type; if invalid, loop code block until discount type is valid
+            validDiscountType = false;
+            while (validDiscountType != true) {
+                cout << "Please enter your discount type (Senior, PWD, or None): ";
+                getline(cin, discountIdentifier);
+                if (cin.fail()) {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout << "Please enter a valid discount type.\n";
+                }
+                if (discountIdentifier == "Senior") {
+                    cout << "Senior Citizen discount applied. VAT Exemption applied.\n";
+                    validDiscountType = true;
+                } else if (discountIdentifier == "PWD") {
+                    cout << "Senior Citizen discount applied. VAT Exemption applied.\n";
+                    validDiscountType = true;
+                } else if (discountIdentifier == "None") {
+                    cout << "No discount applied. VAT exemption not applied.\n";
+                    validDiscountType = true;
+                } else {
+                    cout << "Please enter a valid discount type.\n";
+                }
+            }
+
+            // Ask for cash amount; loop the code block until cash amount is valid
+            validCashAmount = false;
+            while (validCashAmount != true) {
+                cout << "Please enter your cash amount: PHP ";
+                cin >> cashTendered;
+                if (cin.fail() || cashTendered < 0) {
+                    cin.clear();
+                    cin.ignore(10000, '\n');
+                    cout << "Please enter a valid cash amount.\n" << endl;
+                }
+
+                totalPaid += cashTendered;
+
+                /* Check if cashTendered is greater than or equal to the total; if less than the total,
+                keep asking until cashTendered is equal to or greater than the total */
+                if (totalPaid < grandTotal) {
+                    cout << "Insufficient funds. You are missing PHP " << grandTotal - totalPaid << " more.\n";
+                }
+
+                change = totalPaid - grandTotal;
+                validCashAmount = true;
+            }
+
+            
+
             // Receipt printout section
             // Receipt header printout
             cout << "\nProceeding to checkout...\n\n";
@@ -439,6 +499,30 @@ int main() {
             if (towerPincersCount > 0) {
                 cout << "  Hammer                  " << towerPincersCount << "             PHP " << towerPincersPrice << "      PHP " << towerPincersTotal << endl;
             }
+            if (nailsCount > 0) {
+                cout << "  Assorted Nails          " << nailsCount << "             PHP " << nailsPrice << "     PHP " << nailsTotal << endl;
+            }
+            if (barLevelCount > 0) {
+                cout << "  Bar Level               " << barLevelCount << "             PHP " << barLevelPrice << "      PHP " << barLevelTotal << endl;
+            } 
+            if (ductTapeCount > 0) {
+                cout << "  Duct Tape               " << ductTapeCount << "             PHP " << ductTapePrice << "     PHP " << ductTapeTotal << endl;
+            }
+            if (measuringTapeCount > 0) {
+                cout << "  Measuring Tape          " << measuringTapeCount << "             PHP " << measuringTapePrice << "      PHP " << measuringTapeTotal << endl;
+            }
+            if (padlockCount > 0) {
+                cout << "  Padlock                 " << padlockCount << "             PHP " << padlockPrice << "      PHP " << padlockTotal << endl;
+            }
+            if (safetyGlassesCount > 0) {
+                cout << "  Safety Glasses          " << safetyGlassesCount << "             PHP " << safetyGlassesPrice << "     PHP " << safetyGlassesTotal << endl;
+            }
+            if (workGlovesCount > 0) {
+                cout << "  Work Gloves             " << workGlovesCount << "             PHP " << workGlovesPrice << "      PHP " << workGlovesTotal << endl;
+            }
+
+            // Ask for cash amount; if invalid, loop the code block
+            cout << line << endl;
 
 
         } else {
