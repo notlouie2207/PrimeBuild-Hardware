@@ -423,6 +423,8 @@ int main() {
                         } else if (discountIdentifier == "None") {
                             cout << "No discount applied.\nVAT exemption not applied.\n";
                             validDiscountType = true;
+                        } else {
+                            cout << "Please enter a valid discount type.\n";
                         }
                     }
 
