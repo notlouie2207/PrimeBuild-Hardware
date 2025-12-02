@@ -89,11 +89,10 @@ int main() {
 
     // Category selection
     while (selectCategory != "Checkout") {
-        cout << "Please enter a category name as displayed (Enter \"Checkout\" to checkout): ";
-        cin >> selectCategory;
-        cin.ignore();
+        cout << "Please enter a category name EXACTLY as displayed. (Enter \"Checkout\" to checkout): ";
+        getline(cin, selectCategory);
 
-        // Checks if selectCategory is within 1 to 3
+        // Checks if selectCategory is Power Tools; if so, proceed
         if (selectCategory == "Power Tools") {
             validItem = false;
                 // While loop to check if a valid item is selected
@@ -103,6 +102,7 @@ int main() {
                     if (selectItem == "Chainsaw") {
                         cout << "Chainsaw selected. Please enter your desired quantity: ";
                         cin >> itemQty;
+                        cin.ignore();
                         if (cin.fail()) {
                             cin.clear();
                             cin.ignore(10000, '\n');
@@ -114,6 +114,7 @@ int main() {
                     } else if (selectItem == "Drill") {
                         cout << "Drill selected. Please enter your desired quantity: ";
                         cin >> itemQty;
+                        cin.ignore();
                          if (cin.fail()) {
                             cin.clear();
                             cin.ignore(10000, '\n');
@@ -125,6 +126,7 @@ int main() {
                     } else if (selectItem == "Electric Saw") {
                         cout << "Electric Saw selected. Please enter your desired quantity: ";
                         cin >> itemQty;
+                        cin.ignore();
                         if (cin.fail()) {
                             cin.clear();
                             cin.ignore(10000, '\n');
@@ -136,6 +138,7 @@ int main() {
                     } else if (selectItem == "Grinder") {
                         cout << "Grinder selected. Please enter your desired quantity: ";
                         cin >> itemQty;
+                        cin.ignore();
                         if (cin.fail()) {
                             cin.clear();
                             cin.ignore(10000, '\n');
@@ -148,7 +151,7 @@ int main() {
                         cout << "Invalid item! Please input a valid item name.\n";
                     }
                 }
-            } else if (selectCategory == "Hand Tools") {
+            } else if (selectCategory == "Hand Tools") { // Checks if selectCategory is Hand Tools; if so, proceed
                 validItem = false;
                     // While loop to check if a valid item is selected
                     while (validItem != true) {
@@ -157,6 +160,7 @@ int main() {
                         if (selectItem == "Pliers") {
                             cout << "Pliers selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -168,6 +172,7 @@ int main() {
                         } else if (selectItem == "Adjustable Spanner") {
                             cout << "Adjustable Spanner selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -179,6 +184,7 @@ int main() {
                         } else if (selectItem == "Basic Hand Saw") {
                             cout << "Basic Hand Saw selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -190,6 +196,7 @@ int main() {
                         } else if (selectItem == "Hammer") {
                             cout << "Hammer selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -201,6 +208,7 @@ int main() {
                         } else if (selectItem == "Loose Size Wrench") {
                             cout << "Loose Size Wrench selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -212,6 +220,7 @@ int main() {
                         } else if (selectItem == "PVC Pipe Cutter") {
                             cout << "PVC Pipe Cutter selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -223,6 +232,7 @@ int main() {
                         } else if (selectItem == "Screwdriver Set") {
                             cout << "Screwdriver Set selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -234,6 +244,7 @@ int main() {
                         } else if (selectItem == "Sledgehammer") {
                             cout << "Sledgehammer selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -245,6 +256,7 @@ int main() {
                         } else if (selectItem == "Tower Pincers") {
                             cout << "Tower Pincers selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -257,7 +269,7 @@ int main() {
                             cout << "Invalid item! Please input a valid item name.\n";
                         }
                     }
-                } else if (selectCategory == "Miscellaneous Items") {
+                } else if (selectCategory == "Miscellaneous Items") { // Checks if selectCategory is Miscellaneous Items; if so, proceed
                     validItem = false;
                     // While loop to check if a valid item is selected
                     while (validItem != true) {
@@ -266,6 +278,7 @@ int main() {
                         if (selectItem == "Assorted Nails") {
                             cout << "Assorted Nails selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -277,6 +290,7 @@ int main() {
                         } else if (selectItem == "Bar Level") {
                             cout << "Bar Level selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -288,6 +302,7 @@ int main() {
                         } else if (selectItem == "Duct Tape") {
                             cout << "Duct Tape selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -299,6 +314,7 @@ int main() {
                         } else if (selectItem == "Measuring Tape") {
                             cout << "Measuring Tape selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -310,6 +326,7 @@ int main() {
                         } else if (selectItem == "Padlock") {
                             cout << "Padlock selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -321,6 +338,7 @@ int main() {
                         } else if (selectItem == "Safety Glasses") {
                             cout << "Safety Glasses selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
@@ -332,6 +350,7 @@ int main() {
                         } else if (selectItem == "Work Gloves") {
                             cout << "Work Gloves selected. Please enter your desired quantity: ";
                             cin >> itemQty;
+                            cin.ignore();
                             if (cin.fail()) {
                                 cin.clear();
                                 cin.ignore(10000, '\n');
