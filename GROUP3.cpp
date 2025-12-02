@@ -13,13 +13,13 @@ int main() {
     float itemQty;
 
     // Item cost variables
-    float chainsawPrice = 9999.99, drillPrice = 999.99, electricSawPrice = 4999.99, grinderPrice = 1199.99, pliersPrice = 219.99, 
+    double chainsawPrice = 1499.99, drillPrice = 999.99, electricSawPrice = 2499.99, grinderPrice = 1199.99, pliersPrice = 219.99, 
     spannerPrice = 249.99, handsawPrice = 299.99, hammerPrice = 499.99, looseWrenchPrice = 179.99, pvcCutterPrice = 349.99, 
     screwdriverSetPrice = 299.99, sledgehammerPrice = 699.99, towerPincersPrice = 144.99, barLevelPrice = 999.99, measuringTapePrice = 49.99, 
     nailsPrice = 149.99, ductTapePrice = 59.99, padlockPrice = 199.99, safetyGlassesPrice = 199.99, workGlovesPrice = 199.99;
 
     // Item count variables
-    float chainsawCount = 0, drillCount = 0, electricSawCount = 0, grinderCount = 0, pliersCount = 0, 
+    double chainsawCount = 0, drillCount = 0, electricSawCount = 0, grinderCount = 0, pliersCount = 0, 
     spannerCount = 0, handsawCount = 0, hammerCount = 0, looseWrenchCount = 0, pvcCutterCount = 0, 
     screwdriverSetCount = 0, sledgehammerCount = 0, towerPincersCount = 0, barLevelCount = 0, 
     measuringTapeCount = 0, nailsCount = 0, ductTapeCount = 0, padlockCount = 0, safetyGlassesCount = 0, workGlovesCount = 0;
@@ -35,6 +35,10 @@ int main() {
     string topBorder = "+====================================================================+";
     string divider = "|                                 |                                  |";
     string dividerTwo = "|                                                                    |";
+
+    // Constant values
+    float valueAddedTax = 0.12, discount = 0.20;
+    bool isPwd, isSenior;
 
     // Menu printout sequence
     // Menu header printout
@@ -356,13 +360,6 @@ int main() {
             }
         } else if (selectCategory == 4) {
             // Checkout sequence
-            // Checkout header printout
-            cout << "\nProceeding to checkout...\n\n";
-            cout << line << endl << dividerTwo << endl;
-            cout << "|                    PRIMEBUILD HARDWARE RECEIPT                     |" << endl;
-            cout << dividerTwo << endl << line << endl;
-            cout << "| Item         Quantity         Unit Price        Total Cost         |" << endl;
-            cout << line << endl;
 
             // Callculate total costs of each item in the Power Tools category
             chainsawTotal = chainsawCount * chainsawPrice;
@@ -391,6 +388,58 @@ int main() {
             workGlovesTotal = workGlovesCount * workGlovesPrice;
 
             // Receipt printout section
+            // Receipt header printout
+            cout << "\nProceeding to checkout...\n\n";
+            cout << line << endl << dividerTwo << endl;
+            cout << "|                    PRIMEBUILD HARDWARE RECEIPT                     |" << endl;
+            cout << dividerTwo << endl << line << endl << dividerTwo << endl;
+            cout << "| Cashier: Monkey D. Luffy                        Serial No.: #06967 |" << endl;
+            cout << dividerTwo << endl << line << endl;
+            cout << "| Item                    Qty           Price           Cost         |" << endl;
+            cout << line << endl;
+
+            // Receipt proper printout
+            // Check if itemCount variables have values; if yes, print them to be part of the receipt
+            if (chainsawCount > 0) {
+                cout << "  Chainsaw                " << chainsawCount << "             PHP " << chainsawPrice << "     PHP " << chainsawTotal << endl;
+            }
+            if (drillCount > 0) {
+                cout << "  Drill                   " << drillCount << "             PHP " << drillPrice << "      PHP " << drillTotal << endl;
+            }
+            if (electricSawCount > 0) {
+                cout << "  Electric Saw            " << electricSawCount << "             PHP " << electricSawPrice << "     PHP " << electricSawTotal << endl;
+            }
+            if (grinderCount > 0) {
+                cout << "  Grinder                 " << grinderCount << "             PHP " << grinderPrice << "     PHP " << grinderTotal << endl;
+            }
+            if (pliersCount > 0) {
+                cout << "  Pliers                  " << pliersCount << "             PHP " << pliersPrice << "      PHP " << pliersTotal << endl;
+            }
+            if (spannerCount > 0) {
+                cout << "  Adjustable Spanner      " << spannerCount << "             PHP " << spannerPrice << "      PHP " << spannerTotal << endl;
+            }
+            if (handsawCount > 0) {
+                cout << "  Basic Hand Saw          " << handsawCount << "             PHP " << handsawPrice << "     PHP " << handsawTotal << endl;
+            }
+            if (hammerCount > 0) {
+                cout << "  Hammer                  " << hammerCount << "             PHP " << hammerPrice << "      PHP " << hammerTotal << endl;
+            } 
+            if (looseWrenchCount > 0) {
+                cout << "  Loose Size Wrench       " << looseWrenchCount << "             PHP " << looseWrenchPrice << "     PHP " << looseWrenchTotal << endl;
+            }
+            if (pvcCutterCount > 0) {
+                cout << "  PVC Pipe Cutter         " << pvcCutterCount << "             PHP " << pvcCutterPrice << "      PHP " << pvcCutterTotal << endl;
+            }
+            if (screwdriverSetCount > 0) {
+                cout << "  Screwdriver Set         " << screwdriverSetCount << "             PHP " << screwdriverSetPrice << "      PHP " << screwdriverSetTotal << endl;
+            }
+            if (sledgehammerCount > 0) {
+                cout << "  Sledgehammer            " << sledgehammerCount << "             PHP " << sledgehammerPrice << "     PHP " << sledgehammerTotal << endl;
+            }
+            if (towerPincersCount > 0) {
+                cout << "  Hammer                  " << towerPincersCount << "             PHP " << towerPincersPrice << "      PHP " << towerPincersTotal << endl;
+            }
+
 
         } else {
             cout << "Invalid input! Please select a valid category.\n";
