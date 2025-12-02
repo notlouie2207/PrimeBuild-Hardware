@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     // Initialization of variables
     // Logic variables
-    float itemTotal, taxedSubtotal, subtotal, grandTotal, change;
+    float itemTotal, taxedSubtotal, subtotal, discountedSubtotal, grandTotal, change;
     bool validItem, validDiscountType;
     string selectItem, selectCategory, discountIdentifier;
     double cashTendered, discount, totalPaid = 0;
@@ -415,10 +415,11 @@ int main() {
                         }
                         if (discountIdentifier == "Senior") {
                             discount = subtotal * discountReduction;
-                            cout << "Senior Citizen discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal - discount << endl;
+                            discountedSubtotal = subtotal - discount;
+                            cout << "Senior Citizen discount applied. VAT Exemption applied. Your new subtotal is: PHP " << discountedSubtotal << endl;
                             validDiscountType = true;
                         } else if (discountIdentifier == "PWD") {
-                            cout << "PWD discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal - discount << endl;
+                            cout << "PWD discount applied. VAT Exemption applied. Your new subtotal is: PHP " << discountedSubtotal << endl;
                             validDiscountType = true;
                         } else if (discountIdentifier == "None") {
                             cout << "No discount applied. VAT exemption not applied.\n";
