@@ -4,10 +4,10 @@ using namespace std;
 int main() {
     // Initialization of variables
     // Logic variables
-    float itemTotal, taxedSubtotal, subtotal, discountedSubtotal, grandTotal, change;
+    float itemTotal = 0, taxedSubtotal = 0, subtotal = 0, vatAdded = 0, discountedSubtotal = 0, grandTotal = 0, change = 0;
     bool validItem, validDiscountType;
     string selectItem, selectCategory, discountIdentifier;
-    double cashTendered, discount, totalPaid = 0;
+    double cashTendered = 0, discount = 0, totalPaid = 0;
 
     // Temporary quantity variable
     float itemQty;
@@ -401,7 +401,7 @@ int main() {
 
                     // Pre-emptively print the total of all items
                     taxedSubtotal = (subtotal + (subtotal * valueAddedTax));
-                    cout << "Your subtotal is: PHP " << taxedSubtotal << endl;
+                    cout << "Your subtotal (including tax) is: PHP " << taxedSubtotal << endl;
 
                     // Ask for discount type; if invalid, loop code block until discount type is valid
                     validDiscountType = false;
@@ -413,14 +413,15 @@ int main() {
                             cin.ignore(10000, '\n');
                             cout << "Please enter a valid discount type.\n";
                         }
-                        if (discountIdentifier == "Senior") {
-                            cout << "VAT Exemption applied. Discount will be applied after payment. Your new subtotal is: PHP " << subtotal << endl;
-                            validDiscountType = true;
-                        } else if (discountIdentifier == "PWD") {
-                            cout << "VAT Exemption applied. Discount will be applied after payment. Your new subtotal is: PHP " << subtotal << endl;
+                        if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
+                            discount = (subtotal * discountReduction);
+                            discountedSubtotal = (subtotal - discount);
+                            vatAdded = (subtotal * valueAddedTax);
+                            cout << "Discount applied. Subtracted PHP " << discount << " from your total.\n";
+                            cout << "VAT Exemption applied. Subtracted PHP " << vatAdded << " from your total.\nYour new subtotal is: PHP " << discountedSubtotal << endl;
                             validDiscountType = true;
                         } else if (discountIdentifier == "None") {
-                            cout << "No discount applied. VAT exemption not applied.\n";
+                            cout << "No discount applied.\nVAT exemption not applied.\n";
                             validDiscountType = true;
                         } else {
                             cout << "Please enter a valid discount type.\n";
@@ -428,7 +429,7 @@ int main() {
                     }
 
                     if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
-                        while (totalPaid < subtotal) {
+                        while (totalPaid < discountedSubtotal) {
                             cout << "Please enter your cash amount: PHP ";
                             cin >> cashTendered;
                             if (cin.fail() || cashTendered < 0) {
@@ -441,7 +442,7 @@ int main() {
 
                             /* Check if cashTendered is greater than or equal to the total; if less than the total,
                             keep asking until cashTendered is equal to or greater than the total */
-                            if (totalPaid < subtotal) {
+                            if (totalPaid < discountedSubtotal) {
                                 cout << "Insufficient funds. You are missing PHP " << subtotal - totalPaid << " more.\n";
                             }  
                         }
