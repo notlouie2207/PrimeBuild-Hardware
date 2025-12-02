@@ -414,10 +414,11 @@ int main() {
                             cout << "Please enter a valid discount type.\n";
                         }
                         if (discountIdentifier == "Senior") {
-                            cout << "Senior Citizen discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal << endl;
+                            discount = subtotal * discountReduction;
+                            cout << "Senior Citizen discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal - discount << endl;
                             validDiscountType = true;
                         } else if (discountIdentifier == "PWD") {
-                            cout << "PWD discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal << endl;
+                            cout << "PWD discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal - discount << endl;
                             validDiscountType = true;
                         } else if (discountIdentifier == "None") {
                             cout << "No discount applied. VAT exemption not applied.\n";
