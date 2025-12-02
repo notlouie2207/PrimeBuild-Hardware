@@ -5,7 +5,7 @@ int main() {
     // Initialization of variables
     // Logic variables
     int selectCategory;
-    float itemTotal, initialSubtotal, subtotal, grandTotal;
+    float itemTotal, taxedSubtotal, subtotal, grandTotal;
     bool validItem, validDiscountType;
     string selectItem, discountIdentifier;
     double cashTendered, discount, change, totalPaid = 0;
@@ -396,8 +396,8 @@ int main() {
             safetyGlassesTotal + workGlovesTotal;
 
             // Pre-emptively print the total of all items
-            initialSubtotal = (subtotal + (subtotal * valueAddedTax));
-            cout << "Your subtotal is: PHP " << initialSubtotal << endl;
+            taxedSubtotal = (subtotal + (subtotal * valueAddedTax));
+            cout << "Your subtotal is: PHP " << taxedSubtotal << endl;
 
             // Ask for discount type; if invalid, loop code block until discount type is valid
             validDiscountType = false;
@@ -410,10 +410,10 @@ int main() {
                     cout << "Please enter a valid discount type.\n";
                 }
                 if (discountIdentifier == "Senior") {
-                    cout << "Senior Citizen discount applied. VAT Exemption applied.\n";
+                    cout << "Senior Citizen discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal << endl;
                     validDiscountType = true;
                 } else if (discountIdentifier == "PWD") {
-                    cout << "PWD discount applied. VAT Exemption applied.\n";
+                    cout << "PWD discount applied. VAT Exemption applied. Your new subtotal is: PHP " << subtotal << endl;
                     validDiscountType = true;
                 } else if (discountIdentifier == "None") {
                     cout << "No discount applied. VAT exemption not applied.\n";
@@ -424,7 +424,7 @@ int main() {
             }
 
             // Ask for cash amount; loop the code block until cash amount is valid
-            while (totalPaid < initialSubtotal) {
+            while (totalPaid < taxedSubtotal) {
                 cout << "Please enter your cash amount: PHP ";
                 cin >> cashTendered;
                 if (cin.fail() || cashTendered < 0) {
@@ -437,8 +437,8 @@ int main() {
 
                 /* Check if cashTendered is greater than or equal to the total; if less than the total,
                 keep asking until cashTendered is equal to or greater than the total */
-                if (totalPaid < initialSubtotal) {
-                    cout << "Insufficient funds. You are missing PHP " << subtotal - totalPaid << " more.\n";
+                if (totalPaid < taxedSubtotal) {
+                    cout << "Insufficient funds. You are missing PHP " << taxedSubtotal - totalPaid << " more.\n";
                 }
             }
 
