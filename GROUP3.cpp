@@ -100,28 +100,28 @@ int main() {
                     cout << "POWER TOOLS Category selected. Please enter an item name from the menu (case-sensitive): ";
                     getline(cin, selectItem);
                     if (selectItem == "Chainsaw") {
-                        cout << "Chainsaw selected. Please enter your desired quantity: ";
+                        cout << "Chainsaw selected.  Please enter your desired quantity (integers only): ";
                         cin >> itemQty;
                         cin.ignore();
                          
                         chainsawCount += itemQty;
                         validItem = true;
                     } else if (selectItem == "Drill") {
-                        cout << "Drill selected. Please enter your desired quantity: ";
+                        cout << "Drill selected.  Please enter your desired quantity (integers only): ";
                         cin >> itemQty;
                         cin.ignore();
                           
                         drillCount += itemQty;
                         validItem = true;
                     } else if (selectItem == "Electric Saw") {
-                        cout << "Electric Saw selected. Please enter your desired quantity: ";
+                        cout << "Electric Saw selected.  Please enter your desired quantity (integers only): ";
                         cin >> itemQty;
                         cin.ignore();
                          
                         electricSawCount += itemQty;
                         validItem = true;
                     } else if (selectItem == "Grinder") {
-                        cout << "Grinder selected. Please enter your desired quantity: ";
+                        cout << "Grinder selected.  Please enter your desired quantity (integers only): ";
                         cin >> itemQty;
                         cin.ignore();
                          
@@ -138,55 +138,55 @@ int main() {
                         cout << "HAND TOOLS Category selected. Please enter an item name from the menu (case-sensitive): ";
                         getline(cin, selectItem);
                         if (selectItem == "Pliers") {
-                            cout << "Pliers selected. Please enter your desired quantity: ";
+                            cout << "Pliers selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             pliersCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Adjustable Spanner") {
-                            cout << "Adjustable Spanner selected. Please enter your desired quantity: ";
+                            cout << "Adjustable Spanner selected.   Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             spannerCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Basic Hand Saw") {
-                            cout << "Basic Hand Saw selected. Please enter your desired quantity: ";
+                            cout << "Basic Hand Saw selected.   Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             handsawCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Hammer") {
-                            cout << "Hammer selected. Please enter your desired quantity: ";
+                            cout << "Hammer selected.   Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();    
                             hammerCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Loose Size Wrench") {
-                            cout << "Loose Size Wrench selected. Please enter your desired quantity: ";
+                            cout << "Loose Size Wrench selected.   Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();                            
                             looseWrenchCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "PVC Pipe Cutter") {
-                            cout << "PVC Pipe Cutter selected. Please enter your desired quantity: ";
+                            cout << "PVC Pipe Cutter selected.   Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             pvcCutterCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Screwdriver Set") {
-                            cout << "Screwdriver Set selected. Please enter your desired quantity: ";
+                            cout << "Screwdriver Set selected.   Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             screwdriverSetCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Sledgehammer") {
-                            cout << "Sledgehammer selected. Please enter your desired quantity: ";
+                            cout << "Sledgehammer selected.   Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             sledgehammerCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Tower Pincers") {
-                            cout << "Tower Pincers selected. Please enter your desired quantity: ";
+                            cout << "Tower Pincers selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             towerPincersCount += itemQty;
@@ -202,43 +202,43 @@ int main() {
                         cout << "MISCELLANEOUS ITEMS Category selected. Please enter an item name from the menu (case-sensitive): ";
                         getline(cin, selectItem);
                         if (selectItem == "Assorted Nails") {
-                            cout << "Assorted Nails selected. Please enter your desired quantity: ";
+                            cout << "Assorted Nails selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             nailsCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Bar Level") {
-                            cout << "Bar Level selected. Please enter your desired quantity: ";
+                            cout << "Bar Level selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             barLevelCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Duct Tape") {
-                            cout << "Duct Tape selected. Please enter your desired quantity: ";
+                            cout << "Duct Tape selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             ductTapeCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Measuring Tape") {
-                            cout << "Measuring Tape selected. Please enter your desired quantity: ";
+                            cout << "Measuring Tape selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             measuringTapeCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Padlock") {
-                            cout << "Padlock selected. Please enter your desired quantity: ";
+                            cout << "Padlock selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             padlockCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Safety Glasses") {
-                            cout << "Safety Glasses selected. Please enter your desired quantity: ";
+                            cout << "Safety Glasses selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             safetyGlassesCount += itemQty;
                             validItem = true;
                         } else if (selectItem == "Work Gloves") {
-                            cout << "Work Gloves selected. Please enter your desired quantity: ";
+                            cout << "Work Gloves selected.  Please enter your desired quantity (integers only): ";
                             cin >> itemQty;
                             cin.ignore();
                             workGlovesCount += itemQty;
