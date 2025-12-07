@@ -38,7 +38,6 @@ int main() {
 
     // Constant values
     float valueAddedTax = 0.12, discountReduction = 0.20;
-    bool isPwd, isSenior;
 
     // Menu printout sequence
     // Menu header printout
