@@ -103,28 +103,24 @@ int main() {
                         cout << "Chainsaw selected.  Please enter your desired quantity (integers only): ";
                         cin >> itemQty;
                         cin.ignore();
-                         
                         chainsawCount += itemQty;
                         validItem = true;
                     } else if (selectItem == "Drill") {
                         cout << "Drill selected.  Please enter your desired quantity (integers only): ";
                         cin >> itemQty;
-                        cin.ignore();
-                          
+                        cin.ignore();   
                         drillCount += itemQty;
                         validItem = true;
                     } else if (selectItem == "Electric Saw") {
                         cout << "Electric Saw selected.  Please enter your desired quantity (integers only): ";
                         cin >> itemQty;
-                        cin.ignore();
-                         
+                        cin.ignore();    
                         electricSawCount += itemQty;
                         validItem = true;
                     } else if (selectItem == "Grinder") {
                         cout << "Grinder selected.  Please enter your desired quantity (integers only): ";
                         cin >> itemQty;
                         cin.ignore();
-                         
                         grinderCount += itemQty;
                         validItem = true;
                     } else {
