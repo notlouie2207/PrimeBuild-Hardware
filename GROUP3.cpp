@@ -327,7 +327,7 @@ int main() {
                             /* Check if cashTendered is greater than or equal to the total; if less than the total,
                             keep asking until cashTendered is equal to or greater than the total */
                             if (totalPaid < discountedSubtotal) {
-                                cout << "Insufficient funds. You are missing PHP " << subtotal - totalPaid << " more.\n";
+                                cout << "Insufficient funds. You are missing PHP " << discountedSubtotal - totalPaid << " more.\n";
                             }  
                         }
                     } else {
