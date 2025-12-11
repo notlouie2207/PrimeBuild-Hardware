@@ -8,9 +8,7 @@ int main() {
     bool validItem, validDiscountType;
     string selectItem, selectCategory, discountIdentifier;
     double cashTendered = 0, discount = 0, totalPaid = 0;
-
-    // Temporary quantity variable
-    float itemQty;
+    float itemQty; // Temporary quantity variable
 
     // Item cost variables
     double chainsawPrice = 1499.99, drillPrice = 999.99, electricSawPrice = 2499.99, grinderPrice = 1199.99, pliersPrice = 219.99, 
@@ -305,17 +303,11 @@ int main() {
                         } else {
                             cout << "Please enter a valid discount type.\n";
                         }
-                    }
-
+                    
                     if (discountIdentifier == "Senior" || discountIdentifier == "PWD") {
                         while (totalPaid < discountedSubtotal) {
                             cout << "Please enter your cash amount: PHP ";
                             cin >> cashTendered;
-                            if (cashTendered < 0) {
-                                cin.clear();
-                                cin.ignore(10000, '\n');
-                                cout << "Please enter a valid cash amount.\n" << endl;
-                            }
 
                             totalPaid += cashTendered;
 
@@ -344,8 +336,6 @@ int main() {
                             }  
                         }
                     }
-                    // Ask for cash amount; loop the code block until cash amount is valid
-
                     // Receipt printout section
                     // Receipt header printout
                     cout << "\nProceeding to checkout...\n\n";
@@ -458,6 +448,7 @@ int main() {
                         cout << line << endl;
                         return 0;
                     }
+                }
             } else {
                 cout << "Invalid input! Please select a valid category.\n";
         }
