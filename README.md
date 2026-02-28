@@ -1,1 +1,1 @@
-THIS FILE IS NOT FOR PUBLIC USE. This file is simply for a school project I'm working on. Do not use this commercially.
+THIS FILE IS NOT FOR PUBLIC USE. This repository is simply for school files that I'm either working on or are actively using. Do not use this commercially.
