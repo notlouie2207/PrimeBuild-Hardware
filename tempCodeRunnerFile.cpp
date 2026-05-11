@@ -1,0 +1,2 @@
+
+            student[i].grade = 'B';
